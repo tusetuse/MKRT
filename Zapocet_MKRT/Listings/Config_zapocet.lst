@@ -1,0 +1,63 @@
+C51 COMPILER V9.60.7.0   CONFIG_ZAPOCET                                                    12/12/2024 00:59:54 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE CONFIG_ZAPOCET
+OBJECT MODULE PLACED IN .\Objects\Config_zapocet.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Config_zapocet.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\Config_zapocet.lst) TABS(2) OBJECT(.\Objects\Config_zapocet.obj)
+
+line level    source
+
+   1          #include "C8051F330.h"
+   2          
+   3          void PCA_Init()
+   4          {
+   5   1          PCA0MD &= ~0x40;
+   6   1          PCA0MD = 0x00;
+   7   1      }
+   8          
+   9          void Timer_Init()
+  10          {
+  11   1          TMOD = 0x20;
+  12   1          TH1 = 0xFF;
+  13   1      }
+  14          
+  15          void UART_Init()
+  16          {
+  17   1          SCON0 = 0x10;
+  18   1      }
+  19          
+  20          void Port_IO_Init()
+  21          {
+  22   1          P0MDOUT   = 0x10;
+  23   1          XBR0 = 0x01;
+  24   1          XBR1 = 0x40;
+  25   1      }
+  26          
+  27          void Oscillator_Init()
+  28          {
+  29   1          OSCICN = 0x83;
+  30   1      }
+  31          
+  32          void Init_Device(void)
+  33          {
+  34   1          PCA_Init();
+  35   1          Timer_Init();
+  36   1          UART_Init();
+  37   1          Port_IO_Init();
+  38   1          Oscillator_Init();
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     47    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,85 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              12/12/2024 00:59:54 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "stdio.h"
+   2          #include "c8051f330.h"
+   3          
+   4          const char *code morse_table[36] = {
+   5              ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",   // A-J
+   6              "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",     // K-T
+   7              "..-", "...-", ".--", "-..-", "-.--", "--..",                               // U-Z
+   8              "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...",   // 0-7
+   9              "---..", "----."                                                            // 8-9
+  10          };
+  11          
+  12          extern void Init_Device(void);
+  13          
+  14          void UART_Transmit(char c) {        //funkcia nacita a transmitne jednotlive znaky morse kodu prisluchajuce ku
+             - danemu pismenu/cislu
+  15   1        
+  16   1          while (!TI0);
+  17   1          TI0 = 0;
+  18   1          SBUF0 = c;
+  19   1      }
+  20          
+  21          void Send_Morse_UART(char *morse) {       //funkcia podla indexu najde ekvivalent morsovho kodu pre jednotliv
+             -e pismena/cisla v poli a passne ich do Transmit funkcie
+  22   1        
+  23   1          while (*morse) {                                      //Loopuje pokial nehitne null character(koniec stringu) = koniec pi
+             -smena/cisla v morse kode
+  24   2              UART_Transmit(*morse++);                //Nacita jeden znak z pismena/cisla morse kodu a prejde na dalsi 
+  25   2          }
+  26   1          UART_Transmit(' ');                               //Nacita medzeru ked loop skonci
+  27   1      }
+  28          
+  29          void main() {
+  30   1          char *ptr;
+  31   1          char ch;
+  32   1          char input[64];
+  33   1          Init_Device();
+  34   1          TR1 = 1;              // Start Timer 
+  35   1          TI0 = 1;              // Nastavenie transmit interupt flag na prvy prenos
+  36   1      
+  37   1          while (1) {
+  38   2              printf("Enter a message: ");
+  39   2              scanf("%63s", input);               //Obmedzi user input na 63 znakov
+  40   2              ptr = input;
+  41   2              while (*ptr) {                              //Loop bezi pokial pointer nepride na koniec stringu 
+  42   3                  ch = *ptr++;
+  43   3                  if (ch >= 'a' && ch <= 'z') {
+  44   4                      ch -= 'a';                          //Prevod na index 0-25
+  45   4                  } else if (ch >= 'A' && ch <= 'Z') {
+  46   4                      ch -= 'A';                          //Prevod na index 0-25
+  47   4                  } else if (ch >= '0' && ch <= '9') {
+  48   4                      ch -= '0' + 26;                 //Prevod na index 26-35
+  49   4                  } else {
+  50   4                      continue;
+  51   4                  }
+C51 COMPILER V9.60.7.0   MAIN                                                              12/12/2024 00:59:54 PAGE 2   
+
+  52   3                  Send_Morse_UART(morse_table[ch]);
+  53   3              }
+  54   2              UART_Transmit('\n');
+  55   2          }
+  56   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    222    ----
+   CONSTANT SIZE    =    299    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      71
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

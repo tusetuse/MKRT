@@ -1,0 +1,359 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    12/12/2024  00:59:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Config_zapocet.obj TO .\Objects\Zapocet_v1 PRINT (.\Listings\Z
+>> apocet_v1.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Config_zapocet.obj (CONFIG_ZAPOCET)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?OFFXADD)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PRINTF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (SCANF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ISTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?PILDIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (PUTCHAR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (GETCHAR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (UNGETC)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (ISSPACE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTXDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTPDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (_GETKEY)
+
+
+LINK MAP OF MODULE:  .\Objects\Zapocet_v1 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?GETCHAR
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+            BIT     0021H.1   0000H.1   UNIT         ?BI?GETCHAR
+                    0021H.2   0000H.6                *** GAP ***
+            DATA    0022H     005EH     UNIT         _DATA_GROUP_
+            IDATA   0080H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    035FH     0317H     UNIT         ?PR?SCANF?SCANF
+            CODE    0676H     012BH     UNIT         ?CO?MAIN
+            CODE    07A1H     011EH     UNIT         ?C?LIB_CODE
+            CODE    08BFH     00ADH     UNIT         ?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/12/2024  00:59:55  PAGE 2
+
+
+            CODE    096CH     0029H     UNIT         ?PR?_SEND_MORSE_UART?MAIN
+            CODE    0995H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    09BCH     0013H     UNIT         ?PR?_ISSPACE?ISSPACE
+            CODE    09CFH     0011H     UNIT         ?PR?GETCHAR?GETCHAR
+            CODE    09E0H     000FH     UNIT         ?PR?INIT_DEVICE?CONFIG_ZAPOCET
+            CODE    09EFH     000CH     UNIT         ?C_C51STARTUP
+            CODE    09FBH     000AH     UNIT         ?PR?PORT_IO_INIT?CONFIG_ZAPOCET
+            CODE    0A05H     000AH     UNIT         ?PR?_GETKEY?_GETKEY
+            CODE    0A0FH     0008H     UNIT         ?PR?_UART_TRANSMIT?MAIN
+            CODE    0A17H     0007H     UNIT         ?PR?PCA_INIT?CONFIG_ZAPOCET
+            CODE    0A1EH     0007H     UNIT         ?PR?TIMER_INIT?CONFIG_ZAPOCET
+            CODE    0A25H     0005H     UNIT         ?PR?GETCHAR?UNGETCHAR
+            CODE    0A2AH     0004H     UNIT         ?PR?UART_INIT?CONFIG_ZAPOCET
+            CODE    0A2EH     0004H     UNIT         ?PR?OSCILLATOR_INIT?CONFIG_ZAPOCET
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Zapocet_v1 (MAIN)
+
+
+SEGMENT                                       BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                      START    LENGTH     START    LENGTH
+------------------------------------------------------------------------------
+?C_C51STARTUP                              -----    -----      -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                              -----    -----      0022H    0044H
+  +--> ?PR?INIT_DEVICE?CONFIG_ZAPOCET
+  +--> ?CO?MAIN
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?SCANF?SCANF
+  +--> ?PR?_SEND_MORSE_UART?MAIN
+  +--> ?PR?_UART_TRANSMIT?MAIN
+
+?PR?INIT_DEVICE?CONFIG_ZAPOCET             -----    -----      -----    -----
+  +--> ?PR?PCA_INIT?CONFIG_ZAPOCET
+  +--> ?PR?TIMER_INIT?CONFIG_ZAPOCET
+  +--> ?PR?UART_INIT?CONFIG_ZAPOCET
+  +--> ?PR?PORT_IO_INIT?CONFIG_ZAPOCET
+  +--> ?PR?OSCILLATOR_INIT?CONFIG_ZAPOCET
+
+?PR?PRINTF?PRINTF                          0020H.0  0001H.1    0066H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?SCANF?SCANF                            0020H.0  0000H.6    0066H    001AH
+  +--> ?PR?GETCHAR?UNGETCHAR
+  +--> ?PR?_ISSPACE?ISSPACE
+  +--> ?PR?GETCHAR?GETCHAR
+
+?PR?GETCHAR?GETCHAR                        -----    -----      -----    -----
+  +--> ?PR?_GETKEY?_GETKEY
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_SEND_MORSE_UART?MAIN                  -----    -----      0066H    0003H
+  +--> ?PR?_UART_TRANSMIT?MAIN
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/12/2024  00:59:55  PAGE 3
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Zapocet_v1 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:096CH         PUBLIC        _Send_Morse_UART
+  C:0735H         PUBLIC        morse_table
+  C:08BFH         PUBLIC        main
+  B:0098H.1       PUBLIC        TI0
+  B:0088H.6       PUBLIC        TR1
+  D:0099H         PUBLIC        SBUF0
+  C:0A0FH         PUBLIC        _UART_Transmit
+  -------         PROC          _UART_TRANSMIT
+  D:0007H         SYMBOL        c
+  C:0A0FH         LINE#         14
+  C:0A0FH         LINE#         16
+  C:0A12H         LINE#         17
+  C:0A14H         LINE#         18
+  C:0A16H         LINE#         19
+  -------         ENDPROC       _UART_TRANSMIT
+  -------         PROC          _SEND_MORSE_UART
+  D:0066H         SYMBOL        morse
+  C:096CH         LINE#         21
+  C:0972H         LINE#         23
+  C:097DH         LINE#         24
+  C:098EH         LINE#         25
+  C:0990H         LINE#         26
+  -------         ENDPROC       _SEND_MORSE_UART
+  -------         PROC          MAIN
+  -------         DO            
+  D:0022H         SYMBOL        ptr
+  D:0025H         SYMBOL        ch
+  D:0026H         SYMBOL        input
+  -------         ENDDO         
+  C:08BFH         LINE#         29
+  C:08BFH         LINE#         33
+  C:08C2H         LINE#         34
+  C:08C4H         LINE#         35
+  C:08C6H         LINE#         37
+  C:08C6H         LINE#         38
+  C:08CFH         LINE#         39
+  C:08E1H         LINE#         40
+  C:08EAH         LINE#         41
+  C:08F5H         LINE#         42
+  C:0904H         LINE#         43
+  C:0910H         LINE#         44
+  C:0912H         LINE#         45
+  C:0922H         LINE#         46
+  C:0924H         LINE#         47
+  C:0934H         LINE#         48
+  C:093AH         LINE#         49
+  C:093AH         LINE#         50
+  C:093AH         LINE#         51
+  C:093AH         LINE#         52
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/12/2024  00:59:55  PAGE 4
+
+
+  C:0962H         LINE#         53
+  C:0964H         LINE#         54
+  C:0969H         LINE#         55
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        CONFIG_ZAPOCET
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A4H         PUBLIC        P0MDOUT
+  C:09FBH         PUBLIC        Port_IO_Init
+  D:00D9H         PUBLIC        PCA0MD
+  C:0A2EH         PUBLIC        Oscillator_Init
+  D:00E1H         PUBLIC        XBR0
+  D:00E2H         PUBLIC        XBR1
+  C:0A2AH         PUBLIC        UART_Init
+  D:0089H         PUBLIC        TMOD
+  D:00B2H         PUBLIC        OSCICN
+  C:09E0H         PUBLIC        Init_Device
+  C:0A17H         PUBLIC        PCA_Init
+  D:008DH         PUBLIC        TH1
+  D:0098H         PUBLIC        SCON0
+  C:0A1EH         PUBLIC        Timer_Init
+  -------         PROC          PCA_INIT
+  C:0A17H         LINE#         3
+  C:0A17H         LINE#         4
+  C:0A17H         LINE#         5
+  C:0A1AH         LINE#         6
+  C:0A1DH         LINE#         7
+  -------         ENDPROC       PCA_INIT
+  -------         PROC          TIMER_INIT
+  C:0A1EH         LINE#         9
+  C:0A1EH         LINE#         10
+  C:0A1EH         LINE#         11
+  C:0A21H         LINE#         12
+  C:0A24H         LINE#         13
+  -------         ENDPROC       TIMER_INIT
+  -------         PROC          UART_INIT
+  C:0A2AH         LINE#         15
+  C:0A2AH         LINE#         16
+  C:0A2AH         LINE#         17
+  C:0A2DH         LINE#         18
+  -------         ENDPROC       UART_INIT
+  -------         PROC          PORT_IO_INIT
+  C:09FBH         LINE#         20
+  C:09FBH         LINE#         21
+  C:09FBH         LINE#         22
+  C:09FEH         LINE#         23
+  C:0A01H         LINE#         24
+  C:0A04H         LINE#         25
+  -------         ENDPROC       PORT_IO_INIT
+  -------         PROC          OSCILLATOR_INIT
+  C:0A2EH         LINE#         27
+  C:0A2EH         LINE#         28
+  C:0A2EH         LINE#         29
+  C:0A31H         LINE#         30
+  -------         ENDPROC       OSCILLATOR_INIT
+  -------         PROC          INIT_DEVICE
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/12/2024  00:59:55  PAGE 5
+
+
+  C:09E0H         LINE#         32
+  C:09E0H         LINE#         33
+  C:09E0H         LINE#         34
+  C:09E3H         LINE#         35
+  C:09E6H         LINE#         36
+  C:09E9H         LINE#         37
+  C:09ECH         LINE#         38
+  -------         ENDPROC       INIT_DEVICE
+  -------         ENDMOD        CONFIG_ZAPOCET
+
+  -------         MODULE        ?C?CLDPTR
+  C:07A1H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?OFFXADD
+  C:07BAH         PUBLIC        ?C?OFFXADD
+  -------         ENDMOD        ?C?OFFXADD
+
+  -------         MODULE        PRINTF
+  D:0066H         PUBLIC        ?_PRINTF517?BYTE
+  D:0066H         PUBLIC        ?_PRINTF?BYTE
+  D:0066H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0066H         PUBLIC        ?_SPRINTF?BYTE
+  C:0065H         PUBLIC        _PRINTF
+  C:0065H         PUBLIC        _PRINTF517
+  C:005FH         PUBLIC        _SPRINTF
+  C:005FH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        SCANF
+  D:0066H         PUBLIC        ?_SCANF517?BYTE
+  D:0066H         PUBLIC        ?_SCANF?BYTE
+  D:0066H         PUBLIC        ?_SSCANF517?BYTE
+  D:0066H         PUBLIC        ?_SSCANF?BYTE
+  C:03E1H         PUBLIC        _SCANF
+  C:03E1H         PUBLIC        _SCANF517
+  C:03DDH         PUBLIC        _SSCANF
+  C:03DDH         PUBLIC        _SSCANF517
+  -------         ENDMOD        SCANF
+
+  -------         MODULE        ?C?CLDOPTR
+  C:07C6H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:07F3H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?ISTPTR
+  C:0805H         PUBLIC        ?C?ISTPTR
+  -------         ENDMOD        ?C?ISTPTR
+
+  -------         MODULE        ?C?LNEG
+  C:0824H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?LSTPTR
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  12/12/2024  00:59:55  PAGE 6
+
+
+  C:0832H         PUBLIC        ?C?LSTPTR
+  -------         ENDMOD        ?C?LSTPTR
+
+  -------         MODULE        ?C?PLDIDATA
+  C:084CH         PUBLIC        ?C?PLDIDATA
+  -------         ENDMOD        ?C?PLDIDATA
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0855H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?PILDIDATA
+  C:0865H         PUBLIC        ?C?PILDIDATA
+  -------         ENDMOD        ?C?PILDIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0875H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0995H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+  -------         MODULE        GETCHAR
+  B:0021H.1       PUBLIC        ?C?CHARLOADED
+  D:0008H         PUBLIC        ?_UNGETCHAR?BYTE
+  C:09CFH         PUBLIC        GETCHAR
+  -------         ENDMOD        GETCHAR
+
+  -------         MODULE        UNGETC
+  C:0A25H         PUBLIC        _UNGETCHAR
+  -------         ENDMOD        UNGETC
+
+  -------         MODULE        ISSPACE
+  C:09BCH         PUBLIC        _isspace
+  -------         ENDMOD        ISSPACE
+
+  -------         MODULE        ?C?LSTIDATA
+  C:089BH         PUBLIC        ?C?LSTIDATA
+  -------         ENDMOD        ?C?LSTIDATA
+
+  -------         MODULE        ?C?LSTXDATA
+  C:08A7H         PUBLIC        ?C?LSTXDATA
+  -------         ENDMOD        ?C?LSTXDATA
+
+  -------         MODULE        ?C?LSTPDATA
+  C:08B3H         PUBLIC        ?C?LSTPDATA
+  -------         ENDMOD        ?C?LSTPDATA
+
+  -------         MODULE        _GETKEY
+  C:0A05H         PUBLIC        _GETKEY
+  -------         ENDMOD        _GETKEY
+
+Program Size: data=105.2 xdata=0 code=2610
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

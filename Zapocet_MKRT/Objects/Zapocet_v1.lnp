@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Config_zapocet.obj" 
+TO ".\Objects\Zapocet_v1" 
+PRINT(".\Listings\Zapocet_v1.m51") RAMSIZE(256) 

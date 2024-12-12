@@ -19,7 +19,7 @@ void UART_Init()
 
 void Port_IO_Init()
 {
-    P0MDOUT   = 0x10;
+    P0MDOUT = 0x10;
     XBR0 = 0x01;
     XBR1 = 0x40;
 }
